@@ -36,24 +36,29 @@ $ touch foo.txt
 $ ls
 Copy and paste the output below.
 ----------
-
-
+v314-ent-017:my_files student$ touch foo.txt
+v314-ent-017:my_files student$ ls
+foo.txt
 
 ==========
 7. Create another new file using touch.
 
 $ touch bar.txt
 ----------
-
-
+v314-ent-017:my_files student$ touch bar.txt
+v314-ent-017:my_files student$ ls
+bar.txt	foo.txt
 
 ==========
 8. List the files in this directory using the flag that gives the most details.
 
 Copy and paste the output below.
 ----------
-
-
+total 0
+drwxr-xr-x  4 student  staff  136 Sep 16 15:14 .
+-rw-r--r--  1 student  staff    0 Sep 16 15:14 bar.txt
+-rw-r--r--  1 student  staff    0 Sep 16 15:13 foo.txt
+drwxr-xr-x  7 student  staff  238 Sep 16 15:13 ..
 
 ==========
 9. Create a copy of bar.txt called baz.txt and then list the files again.
@@ -61,22 +66,28 @@ Copy and paste the output below.
 
 Write the command that you used to copy the file.  Additionally, copy and paste the output of your file listing below.
 ----------
-
-
+v314-ent-017:my_files student$ cp bar.txt baz.txt
+v314-ent-017:my_files student$ ls
+bar.txt	baz.txt	foo.txt
 
 ==========
 10. Delete the file called bar.txt and then list the files again.
 
 Write the command that you used to remove the file.  Copy and paste the output of your file listing below.
 ----------
+v314-ent-017:my_files student$ rm -rf bar.txt
+v314-ent-017:my_files student$ ls
+baz.txt	foo.txt
+
 ==========
 11. Move the file called foo.txt to qux.txt and then list the files again.
 
 
 Write the command that you used to move the file.  Copy and paste the output of your file listing below.
 ----------
-
-
+v314-ent-017:my_files student$ mv foo.txt qux.txt
+v314-ent-017:my_files student$ ls
+baz.txt	qux.txt
 
 ==========
 12. Go up one directory so that you're in ~/mtec1003-lab-03.
@@ -90,16 +101,20 @@ Write the command that you used to move the file.  Copy and paste the output of 
 
 Write out the command that you used and what happened.
 ----------
+v314-ent-017:mtec1003-lab-03 student$ rmdir my_files
+rmdir: my_files: Directory not empty
 
-
+Cannot remove a directory that isn't empty with rmdir.
 
 ==========
 14. Try removing the directory called my_files using rm.
 
 Write out the command that you used and what happened.
 ----------
+v314-ent-017:mtec1003-lab-03 student$ rm my_files
+rm: my_files: is a directory
 
-
+Command will not remove a directory without a forced flag.
 
 ==========
 15. MAKE SURE YOU'RE IN THE mtec1003-lab-03 directory!  
@@ -108,8 +123,9 @@ Force the removal of the directory and files using the -rf flag
 
 $ rm -rf my_files
 ----------
-
-
+v314-ent-017:mtec1003-lab-03 student$ rm -rf my_files
+v314-ent-017:mtec1003-lab-03 student$ ls
+books	logs	web
 
 ==========
 16. There's a txt file version of a book located in the mtec1003-lab-03 folder.  It is in the following directory if you're in the lab folder:
@@ -120,7 +136,7 @@ Use the command called cat on the file to show its contents.
 
 Describe what happened below.
 ----------
-
+The file version of the book was opened and the text was displayed.
 
 
 ==========
@@ -132,8 +148,8 @@ Use the command, head, on the file to show the contents of the beginning of the 
 
 Write the command that you used below.  Write the last line of the output below (it should be the title).
 ----------
-
-
+head books/other/pg1232.txt
+Title: The Prince
 
 ==========
 18. Using the same file again!
@@ -144,8 +160,11 @@ Use tail on the file to show the contents of the end of the file.
 
 Write the command that you used below.  Write the last line of the output below.
 ----------
-
-
+tail books/other/pg1232.txt
+This Web site includes information about Project Gutenberg-tm,
+including how to make donations to the Project Gutenberg Literary
+Archive Foundation, how to help produce our new eBooks, and how to
+subscribe to our email newsletter to hear about new eBooks.
 
 ==========
 19. Using the same file...
@@ -156,30 +175,44 @@ Use less and more on the file to show the contents of the file.  Try pressing sp
 
 Write the command that you used below.  Describe what spacebar and q does after using either less or more.
 ----------
-
-
+less books/other/pg1232.txt (pressing spacebar displayed more of the book text content on the terminal)
+more books/other/pg1232.txt (pressing q quits the book and returns back to terminal)
 
 ==========
 20. Describe what situations you would use the following commands for viewing files: less, more, cat, tail, head
 
 (Some characteristics that may help your description might be the length of the file, whether or not you'd like to read the whole thing... or just the beginning or end, etc.)
 ----------
-
-
+you can use head if you want to read from the very beginning. you can use cat if you want a text in its entirety (a short text that won't take over the screen). you can use more if you want to navigate forward and backwards if need be. you can use less to read the file in sections.
 
 ==========
 21.  How many words are in pg1232.txt?  What command did you use to determine the word count?
 ----------
-
-
+52,639 words
+wc books/other/pg1232.txt
 
 ==========
 22.  How many lines are in pg1232.txt?  What command did you use to determine the line count?
 ----------
-
+5,063 lines
+wc -l books/other/pg1232.txt
 
 ==========
 23.  Make sure you're in the books/other folder.  Copy all of the txt files from that folder to your home directory using wildcard matching.
 
 Write the command that you used below.
 ----------
+/Users/student/mtec1003-lab-03/books/other
+v314-ent-017:other student$ ls
+pg1232.txt
+v314-ent-017:other student$ cp *.txt ~
+v314-ent-017:other student$ cd ~
+v314-ent-017:~ student$ ls
+Adlm			MPLABXProjects		ipe.properties
+Adobe			Movies			isus
+Applications		Music			mtec1003-lab-03
+Creative Cloud Files	Pictures		mtec1003-lab-03.tar.gz
+Desktop			Public			pg1232.txt
+Documents		QLData			pymel.log
+Downloads		Things			stuff
+Library			google.html		xgen
